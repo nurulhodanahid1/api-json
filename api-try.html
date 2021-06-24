@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bored Api</title>
+</head>
+<body>
+    <h1 id="activity"></h1>
+    <h2>Learn from: <a href="#">visit this place</a></h2>
+
+    <script>
+        function doSomething(){
+            fetch('http://www.boredapi.com/api/activity/')
+            .then(response => response.json())
+            .then(json =>
+            document.getElementById('activity').innerText = json.activity);
+        }
+        doSomething();
+        setInterval(() => {
+            doSomething();
+        }, 1000);
+    </script>
+</body>
+</html>
